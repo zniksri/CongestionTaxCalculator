@@ -15,7 +15,6 @@ public class TollFreeVehicles implements TollFreeVehicleStrategy, GothenburgRule
 
     @Override
     public boolean isTollFreeVehicle(Vehicle vehicle) {
-        if (vehicle == null) return false;
         return taxFreeVehicles.contains(vehicle);
     }
 }

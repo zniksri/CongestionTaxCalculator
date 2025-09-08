@@ -1,4 +1,50 @@
-#spring.application.name=congestionTaxCalculator
+tax:
+  free-vehicles-names:
+    - Foreign
+    - Diplomat
+    - Bus
+    - Military
+    - Motorcycle
+    - Emergency
+    - BonusScenario
+    - TaxExempt
+  max-per-day: 60
+  # Charges in format startTime / endTime / fee
+  fees:
+    intervals:
+      - start: "06:00"
+        end: "06:29"
+        fee: 8
+      - start: "06:30"
+        end: "06:59"
+        fee: 13
+      - start: "07:00"
+        end: "07:59"
+        fee: 18
+      - start: "08:00"
+        end: "08:29"
+        fee: 13
+      - start: "08:30"
+        end: "14:59"
+        fee: 8
+      - start: "15:00"
+        end: "15:29"
+        fee: 13
+      - start: "15:30"
+        end: "16:59"
+        fee: 18
+      - start: "17:00"
+        end: "17:59"
+        fee: 13
+      - start: "18:00"
+        end: "18:29"
+        fee: 8
+      - start: "18:30"
+        end: "05:59"
+        fee: 0
+
+holiday:
+  country: GERMANY
 
 spring:
   application:

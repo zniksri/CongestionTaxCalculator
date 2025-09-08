@@ -2,7 +2,8 @@ package com.example.congestionTaxCalculator.configuration;
 
 import com.example.congestionTaxCalculator.model.DefaultVehicle;
 import com.example.congestionTaxCalculator.model.Vehicle;
-import org.springframework.beans.factory.annotation.Value;
+import com.example.congestionTaxCalculator.model.taxtime.TaxTimeInterval;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,18 +13,29 @@ import java.util.stream.Collectors;
 @Configuration
 public class TaxCalculatorConfiguration {
 
-    @Value("${tax-free-vehicles}")
-    List<String> taxFreeVehicleNames;
-
-    @Value("${max-tax-per-day}") int maxTaxPerDay;
+    @Autowired
+    TaxCalculatorConfigurationProperties taxCalculatorConfigurationProperties;
 
     @Bean
     public List<Vehicle> taxFreeVehicles() {
-        return taxFreeVehicleNames.stream().map(DefaultVehicle::of).collect(Collectors.toList());
+        return taxCalculatorConfigurationProperties.freeVehiclesNames().stream().map(DefaultVehicle::of).collect(Collectors.toList());
     }
 
     @Bean
     public int maxTaxPerDay() {
-        return maxTaxPerDay;
+        return taxCalculatorConfigurationProperties.maxPerDay();
     }
+
+    @Bean
+    public List<TaxTimeInterval> taxFeeLines() {
+        return taxCalculatorConfigurationProperties.fees().intervals().stream()
+                .map(interval -> new TaxTimeInterval(
+                        interval.start(),
+                        interval.end(),
+                        interval.fee()
+                ))
+                .toList();
+    }
+
+
 }
