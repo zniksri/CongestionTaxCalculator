@@ -1,7 +1,7 @@
 package com.example.congestionTaxCalculator;
 
-import com.example.congestionTaxCalculator.application.TollFreeDates;
-import com.example.congestionTaxCalculator.application.TollFreeVehicles;
+import com.example.congestionTaxCalculator.strategy.TollFreeDates;
+import com.example.congestionTaxCalculator.strategy.TollFreeVehicles;
 import com.example.congestionTaxCalculator.configuration.TaxCalculatorConfigurationProperties;
 import com.example.congestionTaxCalculator.model.DefaultVehicle;
 import com.example.congestionTaxCalculator.strategy.days.BusinessDayStrategy;

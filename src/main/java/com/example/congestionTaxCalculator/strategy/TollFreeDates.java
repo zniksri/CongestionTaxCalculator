@@ -1,4 +1,4 @@
-package com.example.congestionTaxCalculator.application;
+package com.example.congestionTaxCalculator.strategy;
 
 import com.example.congestionTaxCalculator.cityRules.GothenburgRule;
 import com.example.congestionTaxCalculator.strategy.days.BusinessDayStrategy;
@@ -15,6 +15,6 @@ private final BusinessDayStrategy businessDayStrategy;
 
     @Override
     public boolean isTollFreeDate(ZonedDateTime date) {
-        return businessDayStrategy.isBusinessDay(date.toLocalDate());
+        return !businessDayStrategy.isBusinessDay(date.toLocalDate());
     }
 }

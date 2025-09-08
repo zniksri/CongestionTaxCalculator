@@ -1,4 +1,4 @@
-package com.example.congestionTaxCalculator.application;
+package com.example.congestionTaxCalculator.strategy;
 
 import com.example.congestionTaxCalculator.cityRules.GothenburgRule;
 import com.example.congestionTaxCalculator.model.Vehicle;

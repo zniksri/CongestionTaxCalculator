@@ -27,7 +27,7 @@ public class TaxCalculatorConfiguration {
     }
 
     @Bean
-    public List<TaxTimeInterval> taxFeeLines() {
+    public List<TaxTimeInterval> taxTimeIntervals() {
         return taxCalculatorConfigurationProperties.fees().intervals().stream()
                 .map(interval -> new TaxTimeInterval(
                         interval.start(),
