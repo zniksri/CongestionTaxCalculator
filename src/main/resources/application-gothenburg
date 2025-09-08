@@ -1,0 +1,4 @@
+# Settings for vehicle types that do not pay tax
+tax-free-vehicles=Foreign,Diplomat,Bus,Military,Motorcycle,Emergency,TaxExempt,Busses,BonusScenario
+# Max tax per day value
+max-tax-per-day=60

@@ -1,0 +1,8 @@
+run database postgeressql in docker
+
+docker run --name postgres \
+  -e POSTGRES_USER=myuser \
+  -e POSTGRES_PASSWORD=secret \
+  -e POSTGRES_DB=mydb \
+  -p 5432:5432 \
+  -d postgres:16
